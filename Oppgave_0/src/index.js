@@ -55,8 +55,31 @@ const addChangeTxTBtnListener = () => {
 // Oppgave 5
 const addElementBtn = () => {
   const txt = document.getElementById("text").value;
-  const para = document.createElement("value");
-};
+
+  const para = document.getElementById("select");
+  const value = para.value;
+  if (value === "h2") {
+    const valueElement = document.createElement("h2");
+    valueElement.innerHTML = txt;
+    document.getElementById("placeholder").appendChild(valueElement);
+  }
+  else if (value === "h3") {
+    const valueElement = document.createElement("h3");
+    valueElement.innerHTML = txt;
+    document.getElementById("placeholder").appendChild(valueElement);
+  }
+  else if (value === "span") {
+    const valueElement = document.createElement("span");
+    valueElement.innerHTML = txt;
+    document.getElementById("placeholder").appendChild(valueElement);
+  }
+  else {
+    const valueElement = document.createElement("p");
+    valueElement.innerHTML = txt;
+    document.getElementById("placeholder").appendChild(valueElement);
+  }
+  //console.log(value, txt)
+}
 
 const addElementBtnListener = () => {
   let btn = document.getElementById("create");
@@ -64,16 +87,44 @@ const addElementBtnListener = () => {
 };
 
 // Oppgave 6
+const listReducerBtn = () => {
+  const reducedList = document.getElementById("list")
+  if ( reducedList.length !== 0 ) {
+    reducedList.removeChild(reducedList.firstElementChild);
+  }
+}
+
+const addListReducerBtnListener = () => {
+  let btn = document.getElementById("remove-li")
+  btn.addEventListener("click", listReducerBtn)
+
+}
 // Oppgave 7
-// Oppgave 8
+  const text = document.getElementById("name");
+  let btn = document.getElementById("order")
 
+  btn.disabled = true
 
-const init = () => {
-  addRemoveBtnListener();
-  addChangeBtnListener();
-  addInputListener();
-  addChangeTxTBtnListener();
-  addElementBtnListener();
-};
+  const stateHandler = () => {
+    if (text.value.length > 4 ) {
+      btn.disabled = true
+    } else {
+      btn.disabled = false
+    }
+  }
+
+  text.addEventListener("input", stateHandler)
+
+  // Oppgave 8
+
+  const init = () => {
+    addRemoveBtnListener();
+    addChangeBtnListener();
+    addInputListener();
+    addChangeTxTBtnListener();
+    addElementBtnListener();
+    addListReducerBtnListener();
+    //addMaxBtnListener();
+  };
 
 document.addEventListener("DOMContentLoaded", init);
