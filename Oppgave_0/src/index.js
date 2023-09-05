@@ -23,17 +23,34 @@ const addChangeBtnListener = () => {
 
 // Oppgave 3
 const inputTxt = () => {
+  // Get input-value from input-field
     const txt = document.getElementById("input").value;
-    txt.innerHTML = txt;
+    // Update p-tag with input-value
+    document.getElementById("input-text").textContent = txt;
 };
 const addInputListener = () => {
-  let text = document.getElementById("input-text");
-  text.addEventListener("input", inputTxt);
-  console.log(text);
+  // Add eventlistener to input-field
+  document.getElementById("input").addEventListener("input", inputTxt);
+  //let text = document.getElementById("input-text");
+  //text.addEventListener("click", inputTxt);
+  //console.log(text);
 };
 
 // Oppgave 4
-const myList = ["item one", "item two", "item three"];
+const changeTxtBtn = () => {
+  const myList = ["item one", "item two", "item three"];
+  myList.forEach((element) => {
+  const para = document.createElement("p");
+  para.innerHTML = element;
+  document.getElementById("ul").appendChild(para);
+  console.log(element)
+});
+};
+
+const addChangeTxTBtnListener = () => {
+  let btn = document.getElementById("write-list");
+  btn.addEventListener("click", changeTxtBtn)
+};
 // Oppgave 5
 // Oppgave 6
 // Oppgave 7
@@ -44,6 +61,7 @@ const init = () => {
   addRemoveBtnListener();
   addChangeBtnListener();
   addInputListener();
+  addChangeTxTBtnListener();
 };
 
 document.addEventListener("DOMContentLoaded", init);
