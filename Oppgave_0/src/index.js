@@ -40,18 +40,29 @@ const addInputListener = () => {
 const changeTxtBtn = () => {
   const myList = ["item one", "item two", "item three"];
   myList.forEach((element) => {
-  const para = document.createElement("p");
-  para.innerHTML = element;
-  document.getElementById("ul").appendChild(para);
-  console.log(element)
-});
+    const para = document.createElement("p");
+    para.innerHTML = element;
+    document.getElementById("ul").appendChild(para);
+    //console.log(element)
+  });
 };
 
 const addChangeTxTBtnListener = () => {
   let btn = document.getElementById("write-list");
-  btn.addEventListener("click", changeTxtBtn)
+  btn.addEventListener("click", changeTxtBtn);
 };
+
 // Oppgave 5
+const addElementBtn = () => {
+  const txt = document.getElementById("text").value;
+  const para = document.createElement("value");
+};
+
+const addElementBtnListener = () => {
+  let btn = document.getElementById("create");
+  btn.addEventListener("click", addElementBtn);
+};
+
 // Oppgave 6
 // Oppgave 7
 // Oppgave 8
@@ -62,6 +73,7 @@ const init = () => {
   addChangeBtnListener();
   addInputListener();
   addChangeTxTBtnListener();
+  addElementBtnListener();
 };
 
 document.addEventListener("DOMContentLoaded", init);
