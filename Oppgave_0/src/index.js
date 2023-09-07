@@ -116,6 +116,27 @@ const addListReducerBtnListener = () => {
   text.addEventListener("input", stateHandler)
 
   // Oppgave 8
+  const colorBtn = () => {
+      count = 0;
+    const luList = document.getElementsByClassName("children")
+    const liList = luList[0].getElementsByTagName("li")
+    for (i = 0; i < liList.length; i++) {
+      count++
+      if (count % 2 === 0) {
+        liList[i].style.border = "thick solid #FFC0CB"
+      }
+      else {
+        liList[i].style.border = "thick solid #00FF00"
+
+      }
+      console.log(liList[i])
+    }
+  }
+
+  const addColorBtnListener = () => {
+    const btn = document.getElementById("color")
+    btn.addEventListener("click", colorBtn);
+  }
 
   const init = () => {
     addRemoveBtnListener();
@@ -124,7 +145,8 @@ const addListReducerBtnListener = () => {
     addChangeTxTBtnListener();
     addElementBtnListener();
     addListReducerBtnListener();
-    //addMaxBtnListener();
+    addColorBtnListener();
+
   };
 
 document.addEventListener("DOMContentLoaded", init);
